@@ -122,6 +122,9 @@ export async function addAnnotations(
     status: 'in_progress',
   });
 
+  console.log('cwd', cwd);
+  console.log('root', path.resolve(cwd, themeRoot));
+
   const allAnnotations: GitHubAnnotation[] = result
     .flatMap((report) =>
       report.offenses.map((offense) => ({
