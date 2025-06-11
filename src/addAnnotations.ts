@@ -104,9 +104,9 @@ export async function addAnnotations(
     } satisfies ThrottlingOptions,
   });
 
-  console.log('Creating GitHub check ASDF...');
-  console.log('cwd', cwd.split('').join(' '));
-  console.log('root', path.resolve(cwd, themeRoot).split('').join(' '));
+  core.info('Creating GitHub check ASDF...');
+  core.info(`cwd: ${cwd.split('').join(' ')}`);
+  core.info(`root: ${path.resolve(cwd, themeRoot).split('').join(' ')}`);
 
   const result: ThemeCheckReport[] = reports.filter(
     getDiffFilter(
