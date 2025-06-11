@@ -104,7 +104,9 @@ export async function addAnnotations(
     } satisfies ThrottlingOptions,
   });
 
-  console.log('Creating GitHub check...');
+  console.log('Creating GitHub check ASDF...');
+  console.log('cwd', cwd.split('').join(' '));
+  console.log('root', path.resolve(cwd, themeRoot).split('').join(' '));
 
   const result: ThemeCheckReport[] = reports.filter(
     getDiffFilter(
@@ -121,9 +123,6 @@ export async function addAnnotations(
     head_sha: pullRequestPayload?.head.sha ?? github.context.sha,
     status: 'in_progress',
   });
-
-  console.log('cwd', cwd);
-  console.log('root', path.resolve(cwd, themeRoot));
 
   const allAnnotations: GitHubAnnotation[] = result
     .flatMap((report) =>
